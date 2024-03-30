@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Venta de Modelos 3D</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body {
+      background-image: url('fondo bueno.jpg');
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
+    }
+  </style>
+</head>
+<body class="font-sans">
+  <nav class="bg-gray-800 text-white py-4">
+    <div class="container mx-auto flex justify-between items-center px-4">
+      <h1 class="text-2xl font-bold">Modelos 3D</h1>
+      <ul class="flex space-x-4">
+        <li><a href="#models" class="hover:text-gray-300">Modelos</a></li>
+        <li><a href="#contact" class="hover:text-gray-300">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="models" class="container mx-auto px-4 py-8">
+    <h2 class="text-3xl font-semibold mb-8">Nuestros Modelos 3D</h2>
+    <!-- Barra de búsqueda -->
+    <div class="mb-4">
+      <input type="text" id="searchInput" class="border border-gray-400 px-4 py-2 rounded-lg" placeholder="Buscar modelo...">
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8" id="modelList">
+      <!-- Aquí puedes insertar tus modelos 3D -->
+      <div class="bg-white bg-opacity-50 rounded-lg p-6">
+        <img src="among us.png" alt="Modelo 3D" class="mb-4">
+        <h3 class="text-xl font-semibold mb-2">Among Us</h3>
+        <p class="text-gray-700 mb-4">Descripción del modelo.</p>
+        <span class="text-lg font-bold">$20</span>
+        <button class="bg-yellow-400 text-white font-semibold px-4 py-2 rounded-full mt-4 hover:bg-yellow-500 transition duration-300"><i class="fas fa-star"></i></button>
+        <a href="https://www.paypal.com" class="bg-blue-500 text-white font-semibold px-4 py-2 rounded-full mt-4 block text-center hover:bg-blue-600 transition duration-300">Comprar con PayPal</a>
+        <a href="https://www.mercadopago.com" class="bg-green-500 text-white font-semibold px-4 py-2 rounded-full mt-4 block text-center hover:bg-green-600 transition duration-300">Comprar con Mercado Pago</a>
+      </div>
+      <!-- Repite este bloque para cada modelo -->
+      <div class="bg-white bg-opacity-50 rounded-lg p-6">
+        <img src="imagen unicornio.jpg" alt="Modelo 3D" class="mb-4">
+        <h3 class="text-xl font-semibold mb-2">Unicornio</h3>
+        <p class="text-gray-700 mb-4">Descripción del modelo.</p>
+        <span class="text-lg font-bold">$20</span>
+        <button class="bg-yellow-400 text-white font-semibold px-4 py-2 rounded-full mt-4 hover:bg-yellow-500 transition duration-300"><i class="fas fa-star"></i> </button>
+        <a href="https://www.paypal.com" class="bg-blue-500 text-white font-semibold px-4 py-2 rounded-full mt-4 block text-center hover:bg-blue-600 transition duration-300">Comprar con PayPal</a>
+        <a href="https://www.mercadopago.com" class="bg-green-500 text-white font-semibold px-4 py-2 rounded-full mt-4 block text-center hover:bg-green-600 transition duration-300">Comprar con Mercado Pago</a>
+      </div>
+      <div class="bg-white bg-opacity-50 rounded-lg p-6">
+        <img src="pulpo.jpg" alt="Modelo 3D" class="mb-4">
+        <h3 class="text-xl font-semibold mb-2">Pulpo</h3>
+        <p class="text-gray-700 mb-4">Descripción del modelo.</p>
+        <span class="text-lg font-bold">$20</span>
+        <button class="bg-yellow-400 text-white font-semibold px-4 py-2 rounded-full mt-4 hover:bg-yellow-500 transition duration-300"><i class="fas fa-star"></i></button>
+        <a href="https://www.paypal.com" class="bg-blue-500 text-white font-semibold px-4 py-2 rounded-full mt-4 block text-center hover:bg-blue-600 transition duration-300">Comprar con PayPal</a>
+        <a href="https://www.mercadopago.com" class="bg-green-500 text-white font-semibold px-4 py-2 rounded-full mt-4 block text-center hover:bg-green-600 transition duration-300">Comprar con Mercado Pago</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-gray-800 text-white py-4">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2024 Venta de Modelos 3D. ifm.</p>
+    </div>
+  </footer>
+
+  <script>
+    function searchModels() {
+      // Obtener el valor del input de búsqueda
+      var input = document.getElementById("searchInput").value.toLowerCase();
+      // Obtener la lista de modelos
+      var models = document.getElementById("modelList").getElementsByClassName("bg-white");
+      
+      // Iterar sobre los modelos y mostrar/ocultar según el nombre de búsqueda
+      for (var i = 0; i < models.length; i++) {
+        var modelName = models[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
+        if (modelName.includes(input)) {
+          models[i].style.display = "block";
+        } else {
+          models[i].style.display = "none";
+        }
+      }
+    }
+
+    // Asignar el evento oninput al input de búsqueda
+    document.getElementById("searchInput").addEventListener("input", searchModels);
+  </script>
+</body>
+</html>
